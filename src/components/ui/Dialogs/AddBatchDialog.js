@@ -21,31 +21,31 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-export function AddCourseDialog() {
+export function AddBatchDialog() {
   const [open, setOpen] = React.useState(false)
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">Add Course</Button>
+        <Button variant="outline">Add Batch</Button>
       </DialogTrigger>
       <DialogContent className="max-w-md overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Add Course</DialogTitle>
+          <DialogTitle>Add Batch</DialogTitle>
           <DialogDescription></DialogDescription>
         </DialogHeader>
-        <CourseForm />
+        <BatchForm />
       </DialogContent>
     </Dialog>
   )
 }
 
-function CourseForm() {
+function BatchForm() {
   return (
     <form className="grid items-start gap-4 max-h-[80vh] overflow-y-auto">
       <div className="grid gap-2">
-        <Label htmlFor="courseName">Course Name</Label>
-        <Input type="text" id="courseName" placeholder="Add course name" />
+        <Label htmlFor="batchName">Batch Name</Label>
+        <Input type="text" id="batchName" placeholder="Add batch name" />
       </div>
       <div className="grid gap-2">
         <Label htmlFor="status">Status</Label>
@@ -54,18 +54,19 @@ function CourseForm() {
             <SelectValue placeholder="Select status" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="active">Active</SelectItem>
-            <SelectItem value="notActive">Not Active</SelectItem>
+            <SelectItem value="ongoing">Ongoing</SelectItem>
+            <SelectItem value="pending">Pending</SelectItem>
+            <SelectItem value="completed">Completed</SelectItem>
           </SelectContent>
         </Select>
       </div>
       <div className="grid gap-2">
-        <Label htmlFor="description">Description</Label>
-        <Input type="text" id="description" placeholder="Add course description" />
+        <Label htmlFor="trainer">Trainer</Label>
+        <Input type="text" id="trainer" placeholder="Add trainer name" />
       </div>
       <div className="grid gap-2">
-        <Label htmlFor="duration">Duration</Label>
-        <Input type="text" id="duration" placeholder="Add course duration" />
+        <Label htmlFor="numberOfStudents">Number of Students</Label>
+        <Input type="number" id="numberOfStudents" placeholder="Add number of students" />
       </div>
       <Button type="submit">Save changes</Button>
     </form>
